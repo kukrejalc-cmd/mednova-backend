@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ec7bd-e719-4e4a-ae18-2bc55068ec2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/hms/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/TestController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +213,7 @@
       <workItem from="1779704434301" duration="1499000" />
       <workItem from="1779771828606" duration="10194000" />
       <workItem from="1779785080167" duration="5846000" />
-      <workItem from="1779792396025" duration="304000" />
+      <workItem from="1779792396025" duration="1525000" />
     </task>
     <servers />
   </component>
@@ -220,16 +222,5 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lahar/hms/HmsApplication.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
