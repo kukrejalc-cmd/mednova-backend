@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c90ec7bd-e719-4e4a-ae18-2bc55068ec2d" name="Changes" comment="" />
+    <list default="true" id="c90ec7bd-e719-4e4a-ae18-2bc55068ec2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/hms/HmsApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AvailableBeds.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AvailableBeds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hospital.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Hospital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HospitalManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HospitalManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HospitalSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HospitalSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ICU.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ICU.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lahar/hms/HmsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lahar/hms/HmsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lahar/hms/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/hms/HmsApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generalWard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generalWard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/placeholder.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +34,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -43,6 +64,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.HmsApplication (1).executor": "Run",
     "Spring Boot.HmsApplication (2).executor": "Run",
@@ -50,6 +72,7 @@
     "Spring Boot.HmsApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ide.FileNotInSourceRootChecker.no.check": "true",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/hp/Desktop/crt_project",
@@ -201,12 +224,16 @@
       <workItem from="1779694064465" duration="5579000" />
       <workItem from="1779701731075" duration="2668000" />
       <workItem from="1779704434301" duration="1499000" />
-      <workItem from="1779771828606" duration="7875000" />
+      <workItem from="1779771828606" duration="10194000" />
+      <workItem from="1779785080167" duration="3790000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
