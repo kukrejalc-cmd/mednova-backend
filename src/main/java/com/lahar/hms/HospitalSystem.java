@@ -1,12 +1,6 @@
-import java.util.*;
+package com.lahar.hms;
 
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import java.util.ArrayList;
 
 // Abstract Class
 abstract class Hospital {
@@ -21,9 +15,9 @@ abstract class Hospital {
 }
 
 // General Ward Class
-class generalWard extends Hospital {
+class GeneralWard extends Hospital {
 
-    generalWard(String id) {
+    GeneralWard(String id) {
         super(id);
     }
 
@@ -63,11 +57,11 @@ class AvailableBeds {
 }
 
 // Hospital Management Class
-class HospitalManagement {
+public class HospitalSystem {
 
     ArrayList<AvailableBeds> beds = new ArrayList<>();
 
-    HospitalManagement(int size) {
+    public HospitalSystem(int size) {
 
         for (int i = 1; i <= size; i++) {
 
@@ -75,20 +69,35 @@ class HospitalManagement {
         }
     }
 
-    void admitPatient(Hospital hospital) {
+    // Admit Patient
+    public String admitPatient(String id, String type) {
+
+        Hospital patient;
+
+        if (type.equalsIgnoreCase("ICU")) {
+
+            patient = new ICU(id);
+
+        } else {
+
+            patient = new GeneralWard(id);
+        }
 
         for (AvailableBeds bed : beds) {
 
             if (bed.isEmpty()) {
 
-                bed.hospital = hospital;
+                bed.hospital = patient;
 
-                return;
+                return "Patient " + id + " admitted in " + type;
             }
         }
+
+        return "No beds available";
     }
 
-    void dischargePatient(String id) {
+    // Discharge Patient
+    public String dischargePatient(String id) {
 
         for (AvailableBeds bed : beds) {
 
@@ -97,232 +106,61 @@ class HospitalManagement {
 
                 bed.hospital = null;
 
-                return;
+                return "Patient " + id + " discharged";
             }
         }
+
+        return "Patient not found";
     }
-}
 
-// Main JavaFX Class
-public class HospitalSystem extends Application {
+    // Calculate Bill
+    public String calculateBill(String id, int days) {
 
-    HospitalManagement hm = new HospitalManagement(5);
+        for (AvailableBeds bed : beds) {
 
-    @Override
-    public void start(Stage stage) {
+            if (!bed.isEmpty() &&
+                    bed.hospital.id.equals(id)) {
 
-        // Title
-        Label title = new Label("Hospital Management System");
+                int bill =
+                        bed.hospital.calculateBill(days);
 
-        title.setStyle(
-                "-fx-font-size: 22px;" +
-                        "-fx-font-weight: bold;"
-        );
-
-        // Patient ID
-        TextField patientId = new TextField();
-
-        patientId.setPromptText("Enter Patient ID");
-
-        // Ward Type
-        ComboBox<String> wardType = new ComboBox<>();
-
-        wardType.getItems().addAll(
-                "General Ward",
-                "ICU"
-        );
-
-        wardType.setPromptText("Select Ward Type");
-
-        // Days Field
-        TextField daysField = new TextField();
-
-        daysField.setPromptText("Enter Number of Days");
-
-        // Buttons
-        Button admitBtn = new Button("Admit Patient");
-
-        Button dischargeBtn =
-                new Button("Discharge Patient");
-
-        Button billBtn =
-                new Button("Calculate Bill");
-
-        Button displayBtn =
-                new Button("Display Beds");
-
-        // Output Area
-        TextArea output = new TextArea();
-
-        output.setPrefHeight(250);
-
-        // Admit Patient
-        admitBtn.setOnAction(e -> {
-
-            String id = patientId.getText();
-
-            String type = wardType.getValue();
-
-            if (id.isEmpty() || type == null) {
-
-                output.appendText(
-                        "Enter Patient ID and Ward Type!\n"
-                );
-
-                return;
+                return "Bill for Patient " +
+                        id +
+                        " = ₹" +
+                        bill;
             }
+        }
 
-            Hospital patient;
+        return "Patient not found";
+    }
 
-            if (type.equals("ICU")) {
+    // Display Beds
+    public String displayBeds() {
 
-                patient = new ICU(id);
+        StringBuilder result = new StringBuilder();
+
+        result.append("\n----- Bed Status -----\n");
+
+        for (AvailableBeds bed : beds) {
+
+            if (bed.isEmpty()) {
+
+                result.append(
+                        "Bed ")
+                        .append(bed.bedNumber)
+                        .append(" is Empty\n");
 
             } else {
 
-                patient = new generalWard(id);
+                result.append(
+                        "Bed ")
+                        .append(bed.bedNumber)
+                        .append(" occupied by Patient ID: ")
+                        .append(bed.hospital.id)
+                        .append("\n");
             }
+        }
 
-            hm.admitPatient(patient);
-
-            output.appendText(
-                    "Patient " + id +
-                            " admitted in " +
-                            type + "\n"
-            );
-        });
-
-        // Discharge Patient
-        dischargeBtn.setOnAction(e -> {
-
-            String id = patientId.getText();
-
-            if (id.isEmpty()) {
-
-                output.appendText(
-                        "Enter Patient ID!\n"
-                );
-
-                return;
-            }
-
-            hm.dischargePatient(id);
-
-            output.appendText(
-                    "Patient " + id +
-                            " discharged\n"
-            );
-        });
-
-        // Calculate Bill
-        billBtn.setOnAction(e -> {
-
-            String id = patientId.getText();
-
-            int days;
-
-            try {
-
-                days = Integer.parseInt(
-                        daysField.getText()
-                );
-
-            } catch (Exception ex) {
-
-                output.appendText(
-                        "Enter valid number of days!\n"
-                );
-
-                return;
-            }
-
-            for (AvailableBeds bed : hm.beds) {
-
-                if (!bed.isEmpty() &&
-                        bed.hospital.id.equals(id)) {
-
-                    int bill =
-                            bed.hospital.calculateBill(days);
-
-                    output.appendText(
-                            "Bill for Patient " +
-                                    id +
-                                    " = ₹" +
-                                    bill + "\n"
-                    );
-
-                    return;
-                }
-            }
-
-            output.appendText(
-                    "Patient not found!\n"
-            );
-        });
-
-        // Display Beds
-        displayBtn.setOnAction(e -> {
-
-            output.appendText(
-                    "\n----- Bed Status -----\n"
-            );
-
-            for (AvailableBeds bed : hm.beds) {
-
-                if (bed.isEmpty()) {
-
-                    output.appendText(
-                            "Bed " +
-                                    bed.bedNumber +
-                                    " is Empty\n"
-                    );
-
-                } else {
-
-                    output.appendText(
-                            "Bed " +
-                                    bed.bedNumber +
-                                    " occupied by Patient ID: " +
-                                    bed.hospital.id + "\n"
-                    );
-                }
-            }
-
-            output.appendText("\n");
-        });
-
-        // Layout
-        VBox root = new VBox(15);
-
-        root.setPadding(new Insets(20));
-
-        root.setAlignment(Pos.CENTER);
-
-        root.getChildren().addAll(
-                title,
-                patientId,
-                wardType,
-                daysField,
-                admitBtn,
-                dischargeBtn,
-                billBtn,
-                displayBtn,
-                output
-        );
-
-        // Scene
-        Scene scene = new Scene(root, 500, 650);
-
-        // Stage
-        stage.setTitle("Hospital Management UI");
-
-        stage.setScene(scene);
-
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-
-        launch();
+        return result.toString();
     }
 }

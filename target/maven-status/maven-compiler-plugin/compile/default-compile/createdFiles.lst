@@ -1,9 +1,8 @@
-generalWard.class
-Hospital.class
-HospitalSystem.class
+com\lahar\hms\ICU.class
 controller\hms\HelloController.class
-AvailableBeds.class
+com\lahar\hms\Hospital.class
+com\lahar\hms\HospitalSystem.class
+com\lahar\hms\AvailableBeds.class
 com\lahar\hms\HmsApplication.class
-HospitalManagement.class
-ICU.class
-com\lahar\hms\TestController.class
+controller\TestController.class
+com\lahar\hms\GeneralWard.class
