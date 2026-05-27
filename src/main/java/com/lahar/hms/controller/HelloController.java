@@ -12,4 +12,9 @@ public class HelloController {
     public String hello() {
         return "API is working!";
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "MedNova Backend Running Successfully 🚀";
+    }
 }
